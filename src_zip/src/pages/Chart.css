@@ -1,0 +1,213 @@
+/* Tổng thể */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* Header */
+.header-container {
+  background-color: #000000;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Filters and Summary Section */
+.filters-summary-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters-container {
+  display: flex;
+  gap: 15px;
+}
+
+.filters-container label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+}
+
+.filters-container label span {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #103760;
+}
+
+.filters-container select,
+.filters-container input {
+  padding: 8px;
+  border: 1px solid #174e88;
+  border-radius: 5px;
+  background-color: #f7fbff;
+  font-size: 16px;
+}
+
+.summary-container {
+  display: flex;
+  gap: 20px;
+}
+
+.summary-box {
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+}
+
+.summary-box p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #0f4988;
+}
+
+/* Main Dashboard Area */
+.dashboard-container {
+  margin-right: 8px;
+  box-sizing: border-box;
+  flex: 90%;
+}
+
+/* Chart Boxes */
+.chart-box {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-top: 15px; /* Đẩy xuống một chút */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 300px; /* Điều chỉnh chiều cao để phù hợp */
+  text-align: center;
+}
+
+.chart-box h2 {
+  margin: 0 0 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #103760;
+  text-align: center;
+}
+
+/* Specific Chart Styles */
+#bar-chart-container {
+  margin-top: 15px; /* Kéo Bar Chart xuống một chút */
+  align-items: center;
+}
+
+#map-container {
+  position: relative;
+  height: 700px; /* Tăng chiều cao để hiển thị toàn bộ bản đồ */
+  overflow: visible; /* Đảm bảo nội dung không bị cắt ngang */
+  display: flex;
+  justify-content: center; /* Căn giữa nội dung */
+  align-items: center; /* Căn giữa theo trục dọc */
+}
+
+#line-chart-container {
+  height: 400px;
+  margin-top: 10px;
+}
+
+/* Heatmap */
+#heatmap-container {
+  #heatmap {
+    rotate: 45;
+  }
+}
+
+/* SVG for Charts */
+svg {
+  width: 100%;
+  height: 100%;
+}
+z .chart-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+.loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(253, 253, 253, 0.214);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.darhboard-content {
+  display: flex;
+}
+
+.left-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Hai cột đều nhau */
+  grid-gap: 8px;
+}
+.chart-title.gradient {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #25486d, #6bb5c9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}
