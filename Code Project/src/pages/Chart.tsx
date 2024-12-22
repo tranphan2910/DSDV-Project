@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Chart.css";
 import * as d3 from "d3";
 
@@ -793,100 +794,117 @@ const Chart: React.FC = () => {
 
   return (
     <div className="p-4">
-      {loading && (
-        <div className="loading-screen">
-          <div className="loader"></div>
-        </div>
-      )}
-
-      <h1 className="text-2xl font-bold mb-1">Vietnam Aviation Analytics</h1>
-      {/* <div className="bg-black p-4 rounded-lg"></div> */}
-      {/* <!-- Header Section --> */}
-      {/* <div className="header-container">
-        <h1>Vietnam Aviation Analytics</h1>
-      </div> */}
-
-      {/* <!-- Bộ lọc và Summary Box --> */}
-      <div className="filters-summary-container">
-        {/* <!-- Bộ lọc --> */}
-        <div className="filters-container">
-          <label>
-            <span>✈️ Airline:</span>
-            <select id="codeName">
-              <option value="All">All</option>
-            </select>
-          </label>
-          <label>
-            <span>📍 From:</span>
-            <select id="from">
-              <option value="All">All</option>
-            </select>
-          </label>
-          <label>
-            <span>📍 To:</span>
-            <select id="to">
-              <option value="All">All</option>
-            </select>
-          </label>
-          <label>
-            <span>📅 Date:</span>
-            <input type="date" id="departureDate" />
-          </label>
-        </div>
-
-        {/* <!-- Summary Box --> */}
-        <div className="summary-container">
-          <div id="total-travellers-box" className="summary-box">
-            <h3>Total Travellers</h3>
-            <p id="total-travellers" className="summary-number">
-              0
-            </p>
+      <div>
+        {loading && (
+          <div className="loading-screen">
+            <div className="loader"></div>
           </div>
-          <div id="total-flights-box" className="summary-box">
-            <h3>Total Flights</h3>
-            <p id="total-flight" className="summary-number">
-              0
-            </p>
+        )}
+
+        <h1 className="text-6xl font-bold mb-2">Vietnam Aviation Analytics</h1>
+        {/* <div className="bg-black p-4 rounded-lg"></div> */}
+        {/* <!-- Header Section --> */}
+        {/* <div className="header-container">
+          <h1>Vietnam Aviation Analytics</h1>
+        </div> */}
+
+        {/* <!-- Bộ lọc và Summary Box --> */}
+        <div className="filters-summary-container">
+          {/* <!-- Bộ lọc --> */}
+          <div className="filters-container">
+            <label>
+              <span>✈️ Airline:</span>
+              <select id="codeName">
+                <option value="All">All</option>
+              </select>
+            </label>
+            <label>
+              <span>📍 From:</span>
+              <select id="from">
+                <option value="All">All</option>
+              </select>
+            </label>
+            <label>
+              <span>📍 To:</span>
+              <select id="to">
+                <option value="All">All</option>
+              </select>
+            </label>
+            <label>
+              <span>📅 Date:</span>
+              <input type="date" id="departureDate" />
+            </label>
+          </div>
+
+          {/* <!-- Summary Box --> */}
+          <div className="summary-container">
+            <div id="total-travellers-box" className="summary-box">
+              <h3>Total Travellers</h3>
+              <p id="total-travellers" className="summary-number">
+                0
+              </p>
+            </div>
+            <div id="total-flights-box" className="summary-box">
+              <h3>Total Flights</h3>
+              <p id="total-flight" className="summary-number">
+                0
+              </p>
+            </div>
           </div>
         </div>
+
+        <div className="darhboard-content">
+          <div className="dashboard-container">
+            <div className="left-top">
+              {/* <!-- Bar Chart --> */}
+              <div className="chart-box" id="bar-chart-container">
+                <h3 className="chart-title gradient">Total Flights by Airline</h3>
+                <svg id="bar-chart"></svg>
+              </div>
+
+              {/* <!-- Heatmap --> */}
+              <div className="chart-box" id="heatmap-container">
+                <h3 className="chart-title gradient">
+                  Flight Density by Hour and Airline
+                </h3>
+                <svg id="heatmap"></svg>
+              </div>
+            </div>
+
+            <div className="left-bottom">
+              {/* <!-- Line Chart --> */}
+              <div className="chart-box" id="line-chart-container">
+                <h3 className="chart-title gradient">
+                  Daily Flight Pricing Analysis
+                </h3>
+                <svg id="line-chart"></svg>
+              </div>
+            </div>
+          </div>
+          <div className="chart-box" id="map-container">
+            <h3 className="chart-title gradient">
+              Passenger Routes and Flight Coverage
+            </h3>
+            <svg id="vietnam-map"></svg>
+          </div>
+        </div>
+        {/* <!-- Map --> */}
       </div>
 
-      <div className="darhboard-content">
-        <div className="dashboard-container">
-          <div className="left-top">
-            {/* <!-- Bar Chart --> */}
-            <div className="chart-box" id="bar-chart-container">
-              <h3 className="chart-title gradient">Total Flights by Airline</h3>
-              <svg id="bar-chart"></svg>
-            </div>
-
-            {/* <!-- Heatmap --> */}
-            <div className="chart-box" id="heatmap-container">
-              <h3 className="chart-title gradient">
-                Flight Density by Hour and Airline
-              </h3>
-              <svg id="heatmap"></svg>
-            </div>
-          </div>
-
-          <div className="left-bottom">
-            {/* <!-- Line Chart --> */}
-            <div className="chart-box" id="line-chart-container">
-              <h3 className="chart-title gradient">
-                Daily Flight Pricing Analysis
-              </h3>
-              <svg id="line-chart"></svg>
-            </div>
-          </div>
-        </div>
-        <div className="chart-box" id="map-container">
-          <h3 className="chart-title gradient">
-            Passenger Routes and Flight Coverage
-          </h3>
-          <svg id="vietnam-map"></svg>
-        </div>
+      <div className="flex gap-4 mt-10">
+        <Link
+          to="/"
+          className="inline-block px-6 py-3 bg-custom-gray-0.9 rounded-lg hover:bg-custom-gray"
+        >
+          Back
+        </Link>
+        <Link
+          to="/team"
+          className="inline-block px-6 py-3 bg-custom-orange-0.9 rounded-lg hover:bg-custom-orange"
+        >
+          Next
+        </Link>
       </div>
-      {/* <!-- Map --> */}
     </div>
   );
 };

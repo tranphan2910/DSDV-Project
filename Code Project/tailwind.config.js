@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        telma: ['Telma-Medium'],
+      },
       colors: {
         'custom-venetian-lace': {
           DEFAULT: '#F7EDDA',
