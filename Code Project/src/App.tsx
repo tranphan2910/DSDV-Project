@@ -7,7 +7,7 @@ import Chart from './pages/Chart';
 import Temp from './pages/Temp';
 
 const App: React.FC = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
     const [isNavExpanded, setIsNavExpanded] = useState(true);
     
     useEffect(() => {
@@ -32,6 +32,8 @@ const App: React.FC = () => {
             setIsDarkMode(false);
         }
     };
+
+    handleModeChange('light');
 
     return (
         <Router>
